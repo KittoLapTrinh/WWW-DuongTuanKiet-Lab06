@@ -1,5 +1,15 @@
+# WWW-DuongTuanKiet-Lab06
+
+# 💻 Công nghệ và công cụ sử dụng
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?style=for-the-badge&logo=Thymeleaf&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
+
+### Class diagram
+![class-diagram](https://github.com/user-attachments/assets/4414acb8-1537-40b0-898c-3933aad052da)
+
+### Database diagram
+![class-diagram](https://github.com/user-attachments/assets/b329773a-8825-4b1a-9a44-9b2a4cea2fa4)
+
 ### User
-![image](https://github.com/user-attachments/assets/38d636e0-6a87-449e-9a48-13427a9b5d87)
 ![image](https://github.com/user-attachments/assets/c1c05793-00a2-4627-baad-64105b8a5cbe)
 ![image](https://github.com/user-attachments/assets/07c8cde8-bb01-48f7-86b0-b68b74dd3271)
 
