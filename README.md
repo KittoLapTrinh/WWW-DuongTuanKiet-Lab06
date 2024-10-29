@@ -7,7 +7,7 @@
 ![class-diagram](https://github.com/user-attachments/assets/4414acb8-1537-40b0-898c-3933aad052da)
 
 ### Database diagram
-![class-diagram](https://github.com/user-attachments/assets/b329773a-8825-4b1a-9a44-9b2a4cea2fa4)
+![database-diagram](https://github.com/user-attachments/assets/23fd83ff-9602-4c97-be57-a9f37f31545f)
 
 ### User
 ![image](https://github.com/user-attachments/assets/c1c05793-00a2-4627-baad-64105b8a5cbe)
