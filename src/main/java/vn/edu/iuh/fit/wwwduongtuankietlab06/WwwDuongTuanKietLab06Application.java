@@ -33,7 +33,7 @@ public class WwwDuongTuanKietLab06Application {
 		SpringApplication.run(WwwDuongTuanKietLab06Application.class, args);
 	}
 
-	@Bean
+//	@Bean
 	CommandLineRunner commandLineRunner(){
 		return args -> {
 			String password = "123456";
