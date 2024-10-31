@@ -16,5 +16,14 @@
 ### Post
 ![image](https://github.com/user-attachments/assets/0d8df3a5-4386-49d0-a5ba-cd28f2954bc6)
 ![image](https://github.com/user-attachments/assets/bc81e87d-c5f3-466d-b8a5-cbc76f8cff07)
+
 ### PostComment
 ![image](https://github.com/user-attachments/assets/5257e3d4-769c-46f2-8763-3db13264b38d)
+
+### Login form
+![image](https://github.com/user-attachments/assets/93652892-9e2d-4176-9cdd-a2db2e31f39a)
+
+### Register form
+![image](https://github.com/user-attachments/assets/2159ce87-0720-482e-80c7-b909623035da)
+
+
