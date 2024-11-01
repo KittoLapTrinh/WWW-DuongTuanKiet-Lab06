@@ -22,4 +22,14 @@ public class UserController {
     public String getRegisterForm(){
         return "user/register-page";
     }
+
+    @GetMapping("/navbar")
+    public String getNavbar() {
+        return "fragments/navbar.html";
+    }
+
+    @GetMapping("/right-column")
+    public String getRightColumn() {
+        return "fragments/right-column.html";
+    }
 }
