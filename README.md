@@ -24,6 +24,7 @@
 ![image](https://github.com/user-attachments/assets/93652892-9e2d-4176-9cdd-a2db2e31f39a)
 
 ### Register form
-![image](https://github.com/user-attachments/assets/2159ce87-0720-482e-80c7-b909623035da)
+![image](https://github.com/user-attachments/assets/865974ae-5dbb-4933-b13b-2818085834ca)
+
 
 
