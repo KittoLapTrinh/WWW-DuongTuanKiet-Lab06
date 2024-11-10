@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List Page</title>
+    <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" th:href="@{/css/post.css}"/>
+</head>
+<body>
+    <header>
+        <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+        <div class="header">
+<!--            <h2 th:text="${session.name.toUpperCase()} + ' BLOGLIFE'"></h2>-->
+            <div class="d-flex justify-content-center">
+<!--                <p class="fs-5 text-center" th:text="${'Welcome to the blog of ' + session.name + ' ' + 'world'}"></p>-->
+            </div>
+        </div>
+    </header>
+    <!--Content-->
+    <div class="row">
+        <div class="row">
+            <div class="col-md-4">
+                <a th:href="@{/insert-form}" class="btn btn-success">Add Blog</a>
+            </div>
+        </div>
+        <div class="leftcolumn">
+            <div class="" th:each="post : ${blogPage.content}">
+                <div class="card">
+                    <div class="row">
+                        <h2 class="col-8" th:text="${post.title}"></h2>
+                        <div class="col-2"></div>
+                        <a class="col-2 btn btn-primary m-auto"
+                           th:href="@{/edit-form/{id}(id=${post.id})}">
+                            EDIT
+                        </a>
+                    </div>
+                    <h5 th:text="${post.createdAt}"></h5>
+                    <img src="https://cms.salemall.vn/assets/js/source/blogging-SMB.png" style="height:200px;"/>
+<!--                    <p th:text="${session.name.toUpperCase()}"></p>-->
+                    <p th:text="${post.content}"></p>
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-dark" th:href="@{/show-blog-detail/{id}(id=${post.id})}">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <ul class="pagination d-inline-block p-2 text-dark" th:if="${blogPage.totalPages > 0}"
+                    th:each="pageNumber : ${pageNumbers}">
+                    <li class="page-item">
+                        <a class="page-link" th:href="@{/blogs(size=${blogPage.size}, page=${pageNumber})}"
+                           th:text="${pageNumber}"
+                           th:class="${pageNumber==blogPage.number + 1} ? active : '' ">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div th:replace="~{fragments/right-column :: right}"></div>
+    </div>
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>
