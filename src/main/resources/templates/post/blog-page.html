@@ -15,9 +15,9 @@
     <header>
         <nav th:replace="~{fragments/navbar :: navbar}"></nav>
         <div class="header">
-<!--            <h2 th:text="${session.name.toUpperCase()} + ' BLOGLIFE'"></h2>-->
+            <h2 th:text="${session.name.toUpperCase()} + ' BLOGLIFE'"></h2>
             <div class="d-flex justify-content-center">
-<!--                <p class="fs-5 text-center" th:text="${'Welcome to the blog of ' + session.name + ' ' + 'world'}"></p>-->
+                <p class="fs-5 text-center" th:text="${'Welcome to the blog of ' + session.name + ' ' + 'world'}"></p>
             </div>
         </div>
     </header>
@@ -40,8 +40,8 @@
                         </a>
                     </div>
                     <h5 th:text="${post.createdAt}"></h5>
-                    <img src="https://cms.salemall.vn/assets/js/source/blogging-SMB.png" style="height:200px;"/>
-<!--                    <p th:text="${session.name.toUpperCase()}"></p>-->
+                    <img src="https://media.licdn.com/dms/image/v2/D5612AQFQZsBrIl5Uww/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1686738048408?e=2147483647&v=beta&t=eSneTiQS3vav7-KdsWegMCOyT_DvMksZno5zriVUjq8" style="height:200px; width: 500px"/>
+                    <p th:text="${session.name.toUpperCase()}"></p>
                     <p th:text="${post.content}"></p>
                     <div class="d-flex justify-content-end">
                         <a class="btn btn-dark" th:href="@{/show-blog-detail/{id}(id=${post.id})}">READ MORE</a>

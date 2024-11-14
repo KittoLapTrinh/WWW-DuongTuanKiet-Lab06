@@ -22,40 +22,21 @@ import java.util.Optional;
 @Controller
 @RequiredArgsConstructor
 public class UserController {
+
+
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
     private final UserRepository userRepository;
 
     @GetMapping("/login-form")
-    public String getLoginForm(){
+    public String getLoginForm() {
         return "user/login-page";
     }
 
     @GetMapping("/register-form")
-    public String getRegisterForm(Model model){
+    public String getRegisterForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "user/register-page";
-    }
-    @PostMapping("/login")
-    public String getAccount(@RequestParam String email, @RequestParam String password, HttpSession session){
-        Optional<User> userOptional = userRepository.getUserByEmail(email);
-        if(userOptional.isPresent()){
-            User user = userOptional.get();
-            String storedHash = user.getPasswordHash();
-            System.out.println(storedHash);
-            try{
-                if(BCrypt.verifyer().verify(password.toCharArray(),storedHash).verified){
-                    session.setAttribute("name", user.getLastName());
-                    session.setAttribute("loginUser", user);
-                    System.out.println("Login success");
-                    return "redirect:/post";
-                }
-            }catch(Exception e){
-                logger.error(e.getMessage());
-            }
-        }
-        System.err.println("Login failed!");
-        return "redirect:/login-form";
     }
 
     @PostMapping("/register")
@@ -72,4 +53,26 @@ public class UserController {
         return "redirect:/login-form";
     }
 
+    @PostMapping("/login")
+    public String getAccount(@RequestParam String email, @RequestParam String password, HttpSession session) {
+        Optional<User> userOptional = userRepository.getUserByEmail(email);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            String storedHash = user.getPasswordHash();
+            System.out.println("Stored Hash: " + storedHash);
+            try {
+                if (BCrypt.verifyer().verify(password.toCharArray(), storedHash).verified) {
+                    session.setAttribute("name",user.getLastName());
+                    session.setAttribute("loginUser",user);
+                    System.out.println("Login success");
+                    return "redirect:/post";
+                }
+            } catch (Exception e) {
+                logger.error(e.getMessage());
+            }
+        }
+        System.out.println("Login failed");
+        return "redirect:/login-form";
+    }
 }

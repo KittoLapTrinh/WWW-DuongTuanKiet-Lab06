@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Detail</title>
+    <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" th:href="@{/css/post.css}"/>
+    <link rel="stylesheet" th:href="@{/css/comment.css}"/>
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+    <div class="header">
+        <h2 th:text="${session.name.toUpperCase()} + ' BLOGLIFE'"></h2>
+        <div class="d-flex justify-content-center">
+            <p class="fs-5 text-center" th:text="${'Welcome to the blog of ' + session.name + ' ' + 'world'}"></p>
+        </div>
+    </div>
+</header>
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="" th:object="${blog}">
+            <div class="card">
+                <h2 th:text="*{title}"></h2>
+                <h5 th:text="*{#dates.format(createdAt, 'dd-MM-yyyy HH:mm')}"></h5>
+                <div class="fakeimg" style="height:200px;"></div>
+                <p th:text="'Author: ' + ${session.name.toUpperCase()}"></p>
+                <p th:text="*{content}"></p>
+            </div>
+            <div class="container">
+                <div class="be-comment-block" th:object="${postComments}">
+                    <h1 class="comments-title" th:text="'Comments (' + ${#lists.size(postComments)} + ')'"></h1>
+                    <div th:each="comment : ${postComments}">
+                        <div class="be-comment">
+                            <div class="be-img-comment">
+                                <a href="#">
+                                    <img src="https://kenh14cdn.com/203336854389633024/2023/9/22/photo-20-16953821565071593266849.jpg" alt=""
+                                         class="be-ava-comment">
+                                </a>
+                            </div>
+                            <div class="be-comment-content">
+                                <span class="be-comment-name" th:text="${comment.title}"></span>
+                                <span class="be-comment-time" th:text="${#dates.format(comment.createdAt, 'dd-MM-yyyy HH:mm')}"></span>
+                                <p class="be-comment-text" th:text="${comment.content}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="form-block" th:action="@{/insert-comment/{id}(id=${session.postId})}" method="post">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group d-flex ">
+                        <input class="form-input" name="email" id="email" type="email"
+                               placeholder="@Your email">
+                    </div>
+                </div>
+                <div class="col-xs-12 my-2">
+                    <div class="form-group">
+                        <textarea class="form-input" name="content" placeholder="Your text"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div th:replace="~{fragments/right-column :: right}"></div>
+</div>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+</body>
+</html>

@@ -1,68 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"
           rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous">
-    <title>Login</title>
+    <title>Boostrap Login | Ludiflex</title>
 </head>
 <body>
-    <div class="container d-flex align-items-center justify-content-center min-vh-100">
-        <div class="row border rounded-5 p-3 bg-white shadow box-area" >
-            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background-color: #02e8e5">
-                <div class="featured-image mb-3">
-                    <img src="https://midoshriks-school.netlify.app/assets/sing/imgs/login-form-img.png" width="250px">
 
-                </div>
-                <p class="text-white fs-2">Be Verified</p>
-                <small class="text-white text-wrap text-center">Join experienced Designers on this platform.</small>
+<!----------------------- Main Container -------------------------->
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <!----------------------- Login Container -------------------------->
+
+    <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <!--------------------------- Left Box ----------------------------->
+        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
+             style="background: #103cbe;">
+            <div class="featured-image mb-3">
+                <img src="https://midoshriks-school.netlify.app/assets/sing/imgs/login-form-img.png" class="img-fluid"
+                     style="width: 250px;">
             </div>
-            <div class="col-md-6">
-                <div>
-                    <h2>Hello, Again</h2>
+            <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Be
+                Verified</p>
+            <small class="text-white text-wrap text-center"
+                   style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Join experienced Designers on
+                this platform.</small>
+        </div>
+        <!-------------------- ------ Right Box ---------------------------->
+        <div class="col-md-6 right-box">
+            <div class="row align-items-center">
+                <div class="header-text mb-4">
+                    <h2>Hello,Again</h2>
                     <p>We are happy to have you back.</p>
-                    <form th:action="@{/login}" method="post">
-                        <div class="input-group mb-3">
-                            <input type="email" placeholder="Email address" class="form-control form-control-lg bg-light fs-6">
-
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="password" placeholder="Pass word" class="form-control form-control-lg bg-light fs-6">
-
-                        </div>
-                    </form>
-
-
-                    <div class="input-group md-5 d-flex justify-content-between">
+                </div>
+                <form th:action="@{/login}" method="post">
+                    <div class="input-group mb-3">
+                        <input id="email" name="email" type="email" class="form-control form-control-lg bg-light fs-6"
+                               placeholder="Email address">
+                    </div>
+                    <div class="input-group mb-1">
+                        <input id="password" name="password" type="password"
+                               class="form-control form-control-lg bg-light fs-6" placeholder="Password">
+                    </div>
+                    <div class="input-group mb-5 d-flex justify-content-between">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="formCheck">
-                            <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
+                            <label for="formCheck" class="form-check-label text-secondary"><small>Remember
+                                Me</small></label>
                         </div>
                         <div class="forgot">
-                            <small><a href="#">Forgot Passsword</a> </small>
+                            <small><a href="#">Forgot Password?</a></small>
                         </div>
                     </div>
-                    <div class="btn-group mb-3" style="width: 100%">
-                        <button type="submit" class="btn btn-lg btn-light w-100 fs-6" style="background-color: #02e8e5">Login</button>
+                    <div class="input-group mb-3">
+                        <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Login</button>
                     </div>
-                    <div class="btn-group mb-3" style="width: 100%">
-                        <button class="btn btn-lg btn-light w-100 fs-6"><img style="width: 20px; align-items: center; justify-content: center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpJ20a1arvwqPXEyHoGer8g2sNveUrFKB_Rg&s"><img>
-                            Sign In With Google
-                        </button>
-
+                    <div class="input-group mb-3">
+                        <button class="btn btn-lg btn-light w-100 fs-6"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png"
+                                style="width:20px" class="me-2"><small>Sign In with Google</small></button>
                     </div>
-                    <div class="btn-group mb-3">
-                        <small>Don't have account? <a href="register-form">Sign Up</a> </small>
+                    <div class="row">
+                        <small>Don't have account? <a th:href="@{/register-form}">Sign Up</a></small>
                     </div>
-
-
-
-                </div>
+                </form>
             </div>
         </div>
 
-
     </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </body>
 </html>

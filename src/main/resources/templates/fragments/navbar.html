@@ -1,54 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Navbar</title>
-    <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"
-          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title></title>
 </head>
 <body>
-    <nav th:fragment="navbar" class="navbar navbar-expand" style="background-color: #02e8e5">
-        <div class="container-fluid">
-            <div class="">
-                <a>DBook Inc</a>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-info p-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">DBook Inc</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            </div>
-
-            <div class="navbar-collapse  collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link mx-2" href="#">Home</a>
-                    </li>
-                    <li  class="nav-item">
-                        <a class="nav-link mx-2" href="">Blog</a>
-                    </li>
-                    <li  class="nav-item">
-                        <a class="nav-link mx-2" href="">Contact</a>
-                    </li>
-                    <li  class="nav-item">
-                        <a class="nav-link mx-2" href="">About</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-dark h5" href="#"><i class="fab fa-google"></i></a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-dark h5" href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-dark h5" href="#"><i class="fab fa-facebook"></i></a>
-                    </li>
-                </ul>
-            </div>
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto ">
+                <li class="nav-item">
+                    <a class="nav-link mx-2" aria-current="page" th:href="@{/post}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" th:href="@{/blogs}">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="#">About</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-dark h5" href="" target="blank"><i
+                            class="fab fa-google-plus-square"></i></a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-dark h5" href="" target="blank"><i
+                            class="fab fa-facebook-square"></i></a>
+                </li>
+            </ul>
         </div>
-    </nav>
-
-
-
+    </div>
+</nav>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Insert Blog</title>
+    <title>Edit Post</title>
     <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"
           rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous">
@@ -15,7 +15,7 @@
 <nav th:replace="~{fragments/navbar :: navbar}"></nav>
 <div class="row">
     <div class="leftcolumn">
-        <form th:action="@{/insert}" th:object="${post}" method="post">
+        <form th:action="@{/updatePost/{id}(id=${post.id})}" th:object="${post}" method="post">
             <div class="mb-3">
                 <label class="form-label">Title</label>
                 <input type="text" th:field="*{title}" class="form-control">
@@ -28,18 +28,14 @@
                 <label class="form-label">Summary</label>
                 <input type="text" th:field="*{summary}" class="form-control">
             </div>
-            <div class="mb-3 form-check">
-                <label class="form-check-label">Published</label>
-                <input type="checkbox" th:checked="*{published}" class="form-check-input">
-            </div>
-            <div class="mb-3 form-floating">
-                <textarea class="form-control" th:field="*{content}" id="floatingTextarea2" style="height: 300px;"></textarea>
-                <label for="floatingTextarea2">Comments</label>
+            <div class="mb-3">
+                <label class="form-check-label">Content</label>
+                <textarea class="form-control" th:field="*{content}"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <input type="hidden"  name="authorId" id="authorId" th:value="${session.loginUser.getId()}">
         </form>
     </div>
+<!--    <div th:replace="~{fragments/right-column :: right}"></div>-->
 </div>
 <footer th:replace="~{fragments/footer :: footer}"></footer>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
